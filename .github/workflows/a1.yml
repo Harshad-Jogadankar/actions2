@@ -25,5 +25,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a python script
-        run: python .github/workflows/*.py
+        run: |
+          for script in $(find . -type f -name "*.py"); do
+            echo "Running $script"
+            python "$script"
+          done
 
